@@ -25,3 +25,25 @@ To build this binary you need the Mstar sdk and some libs from the camera to com
     
     "mija_framegrab -m mainstreamPipe1 -m mainstreamPipe2 -s substreamPipe1 -s substreamPipe2" will create 2 pipes per stream.
 
+## How to build 
+
+first, install docker
+
+``` 
+sudo apt-get install docker.io
+```
+
+build the container
+```
+sudo docker build -t fgraber .
+```
+
+run it
+```
+sudo docker run -it -v $(pwd):/framegrabber/sdk/sample  fgraber
+```
+
+compile
+```
+make
+```

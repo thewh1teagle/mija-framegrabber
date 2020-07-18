@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Get files from Google Drive
+
+file_id="1DnTe8G4FV4rMuopYFrdX6sx_ZeFv9YMD"
+filename="mstar_sdk.zip"
+
+URL="https://docs.google.com/uc?export=download&id=$file_id"
+
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --show-progress --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate $URL -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=$file_id" -O $filename && rm -rf /tmp/cookies.txt
